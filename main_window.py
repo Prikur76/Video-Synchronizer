@@ -1,6 +1,20 @@
+import os
+import sys
+
 from PySide6.QtWidgets import QMainWindow, QWidget, QGridLayout, QSpinBox, QPushButton, QFileDialog, QHBoxLayout, QVBoxLayout, QMessageBox, QGroupBox, QProgressBar
 from PySide6.QtGui import QIcon
 from video_panel import VideoPanel
+
+
+def resource_path(relative_path):
+    """Получение абсолютного пути к ресурсам для PyInstaller."""
+    try:
+        # PyInstaller создает временную папку base_path
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class MainWindow(QMainWindow):
@@ -8,8 +22,6 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Video Synchronizer")
         self.setGeometry(100, 100, 800, 600)
-        
-        # Добавление иконки
         self.set_favicon()
         
         # Главный контейнер с вертикальной компоновкой
@@ -73,13 +85,8 @@ class MainWindow(QMainWindow):
     def set_favicon(self):
         try:
             # Путь к файлу иконки
-            icon_path = "asserts/favicon.ico"  # Замените на путь к вашему файлу
-            
-            # Создание объекта QIcon
-            icon = QIcon(icon_path)
-            
-            # Установка иконки
-            self.setWindowIcon(icon)
+            icon_path = resource_path("asserts/favicon.ico")
+            self.setWindowIcon(QIcon(icon_path)) 
         except Exception as e:
             print(f"Ошибка при загрузке иконки: {e}")
 
