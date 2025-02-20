@@ -9,6 +9,9 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Video Synchronizer")
         self.setGeometry(100, 100, 800, 600)
         
+        # Добавление иконки
+        self.set_favicon()
+        
         # Главный контейнер с вертикальной компоновкой
         main_widget = QWidget()
         self.setCentralWidget(main_widget)
@@ -66,6 +69,19 @@ class MainWindow(QMainWindow):
         bottom_panel.addWidget(self.progress_bar)
         
         main_layout.addLayout(bottom_panel)
+
+    def set_favicon(self):
+        try:
+            # Путь к файлу иконки
+            icon_path = "assets/favicon.ico"  # Замените на путь к вашему файлу
+            
+            # Создание объекта QIcon
+            icon = QIcon(icon_path)
+            
+            # Установка иконки
+            self.setWindowIcon(icon)
+        except Exception as e:
+            print(f"Ошибка при загрузке иконки: {e}")
 
     def open_videos(self):
         paths, _ = QFileDialog.getOpenFileNames(
