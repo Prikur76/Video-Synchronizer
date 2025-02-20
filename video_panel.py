@@ -71,7 +71,7 @@ class VideoPanel(QWidget):
         
         # Кнопка сброса к 0 кадру
         self.reset_button = QPushButton("Сброс")
-        self.reset_button.setStyleSheet("background-color: #ff5722; color: white;")
+        self.reset_button.setStyleSheet("background-color: #A60000; color: white;")
         self.reset_button.clicked.connect(self.reset_to_start)
         control_layout.addWidget(self.reset_button)
         
