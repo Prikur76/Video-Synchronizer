@@ -27,7 +27,7 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/Prikur76/video-synchronizer.git
+   git clone https://github.com/Prikur76/Video-Synchronizer.git
    ```
 
 2. Установите зависимости:
