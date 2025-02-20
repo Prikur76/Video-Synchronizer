@@ -1,4 +1,5 @@
 import cv2
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QSpinBox, QHBoxLayout
 from PySide6.QtGui import QImage, QPixmap, Qt
 from PySide6.QtCore import QThread, Signal
@@ -80,6 +81,7 @@ class VideoPanel(QWidget):
         self.frame_spinbox.setMinimum(0)
         self.frame_spinbox.setMaximum(self.total_frames - 1)
         self.frame_spinbox.setValue(self.current_frame)
+        self.frame_spinbox.setAlignment(Qt.AlignCenter)
         self.frame_spinbox.valueChanged.connect(self.jump_to_frame)
         control_layout.addWidget(self.frame_spinbox)
         

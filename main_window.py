@@ -1,6 +1,7 @@
 import os
 import sys
 
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow, QWidget, QGridLayout, QSpinBox, QPushButton, QFileDialog, QHBoxLayout, QVBoxLayout, QMessageBox, QGroupBox, QProgressBar
 from PySide6.QtGui import QIcon
 from video_panel import VideoPanel
@@ -62,7 +63,8 @@ class MainWindow(QMainWindow):
         # Виджет для выбора интервала (используем QSpinBox вместо QLineEdit)
         self.interval_input = QSpinBox()  # Используем QSpinBox
         self.interval_input.setRange(1, 9999)  # Устанавливаем минимальное значение 1
-        self.interval_input.setValue(1)  # Значение по умолчанию
+        self.interval_input.setValue(1)  # Значение по умолчанию        
+        self.interval_input.setAlignment(Qt.AlignCenter)  # Выравнивание значений в QSpinBox по центру
         
         self.next_button = QPushButton("Вперёд")
         self.next_button.setIcon(QIcon("path/to/forward_arrow.png"))
