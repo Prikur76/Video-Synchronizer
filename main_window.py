@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
     def set_favicon(self):
         try:
             # Путь к файлу иконки
-            icon_path = "assets/favicon.ico"  # Замените на путь к вашему файлу
+            icon_path = "asserts/favicon.ico"  # Замените на путь к вашему файлу
             
             # Создание объекта QIcon
             icon = QIcon(icon_path)
